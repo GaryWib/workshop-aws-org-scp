@@ -7,8 +7,9 @@ First, we are going to need a couple of AWS accounts.
 1. Go to **AWS Organizations**.
 <img />
 
-1. Click on **Add account**.
+> **NOTE:** You may need to activate Organizations for your account first.
 
+1. Click on **Add account**.
 
 1. Click on **Create account**.
 
@@ -16,8 +17,8 @@ First, we are going to need a couple of AWS accounts.
 
 1. Add an account with the following details:
     * **Full name:** `Workshop Account 1`  
-      **Email:** `yourusername+account1@yourgoogledomain`  
-      **IAM role name:** (leave blank) `OrganizationAccountAccessRole`
+    * **Email:** `yourusername+account1@yourgoogledomain`  
+    * **IAM role name:** (leave blank) `OrganizationAccountAccessRole`
 
 ![create option](../images/acc1_create.png)
 
@@ -53,16 +54,16 @@ Let's access these accounts.
 
 1. Enter the following details:
     * **Account:** (Account 1's number)  
-      **Role:** OrganizationAccountAccessRole  
-      **Display Name:** Workshop Account 1  
-      **Color:** Yellow (3rd box from the left)
+    * **Role:** OrganizationAccountAccessRole  
+    * **Display Name:** Workshop Account 1  
+    * **Color:** Yellow (3rd box from the left)
 
     From the context menu, click on **Switch Role** again.
 
     * **Account:** (Account 2's number)  
-      **Role:** OrganizationAccountAccessRole  
-      **Display Name:** Workshop Account 2  
-      **Color:** Blue (5th box from the left)
+    * **Role:** OrganizationAccountAccessRole  
+    * **Display Name:** Workshop Account 2  
+    * **Color:** Blue (5th box from the left)
 
 You can now switch between your accounts with only a couple of clicks.
 

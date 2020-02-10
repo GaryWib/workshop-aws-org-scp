@@ -40,7 +40,22 @@ restricted-admin-role:
 		--parameters ParameterKey=AdministratorAccountId,ParameterValue=$(MASTER_ACC_NUMBER)
 
 restricted-admin-role-accounts:
+	@echo "Adding Accounts to Restricted Admin Role CloudFormation StackSet"
+	# Add AWS CLI command for Restricted Admin Role CloudFormation StackSet Accounts here
 	aws cloudformation $(ACTION)-stack-instances \
 		--stack-set-name $(RESTRICTEDADMIN_STACKSETNAME) \
 		--accounts $(ACC1_NUMBER) $(ACC2_NUMBER) \
 		--regions $(REGION)
+
+region-lock-scp:
+	@echo "Creating RegionLock Service Control Policy"
+	# Add AWS CLI command for RegionLock Service Control Policy Creation here
+	aws organizations $(ACTION)-policy --content file://./templates/region-lock-scp.json --name RegionLock --description '' --type SERVICE_CONTROL_POLICY
+
+region-lock-attachment:
+	@echo "Attaching RegionLock Service Control Policy"
+	# Add AWS CLI command for RegionLock Service Control Policy Attachment here
+	aws organizations attach-policy --target-id $(ACC1_NUMBER) --policy-id $(POLICY_ID)
+	aws organizations attach-policy --target-id $(ACC2_NUMBER) --policy-id $(POLICY_ID)
+
+.PHONY: account2 stackset-admin-role restricted-admin-role restricted-admin-role-accounts region-lock-scp
